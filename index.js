@@ -20,13 +20,13 @@
  *   pageBar.render();
  */
 function Page(paramsObj){
-  if ( ({}).toString.call(paramsObj) !== '[object Object]' ) { throw new Error('Page need paramsObj => {}');}
+  if ( paramsObj !== void 0 && ({}).toString.call(paramsObj) !== '[object Object]' ) { throw new Error('Page need paramsObj => {}');}
 
   var arr = paramsObj.url ? paramsObj.url.split('?') : window.location.href.split('?');
 
   this.url       = arr[0];
   this.current   = paramsObj.current ? paramsObj.current : 1;
-  this.params    = paramsObj.params ? paramssObj.param : this.getParams(arr[1]);
+  this.params    = paramsObj.params ? paramsObj.param : this.getParams(arr[1]);
   this.paramName = paramsObj.paramName ? paramsObj.paramName : 'page';
   this.count     = paramsObj.count ? paramsObj.count : 1;
   this.step      = paramsObj.step ? paramsObj.step : 3;
