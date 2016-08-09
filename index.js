@@ -20,7 +20,8 @@
  *   pageBar.render();
  */
 function Page(paramsObj){
-  if ( paramsObj !== void 0 && ({}).toString.call(paramsObj) !== '[object Object]' ) { throw new Error('Page need paramsObj => {}');}
+  if ( paramsObj === void 0 ) { paramsObj = {} }
+  if ( ({}).toString.call(paramsObj) !== '[object Object]' ) { throw new Error('Page need paramsObj => {}');}
 
   var arr = paramsObj.url ? paramsObj.url.split('?') : window.location.href.split('?');
 
