@@ -35,13 +35,13 @@ function Page(paramsObj){
   this.foot      = paramsObj.foot ? paramsObj.foot : '<span>共：{{current}}/'+this.count+'</span>';
   this.selector  = paramsObj.selector;
   this.className = paramsObj.className ? paramsObj.className : 'current';
-  this.cssTxt    = paramsObj.cssTxt ? paramsObj.cssTxt : `.page-box{
-                                                            padding: 10px 0;}
-                                                          .page-box .page-i{
-                                                            padding: 6px 10px;margin-right: 5px;border: 1px solid #e1e1e1;
-                                                            background: #eee;border-radius: 2px;color: #666;cursor: pointer;}
-                                                          .page-box .page-i:hover,.page-box .page-i.current{
-                                                            color: #fff;background:rgb(92, 144, 210);border: 1px solid rgb(92, 144, 210);}`;
+  this.cssTxt    = paramsObj.cssTxt ? paramsObj.cssTxt : '.page-box{'+
+                                                         '  padding: 10px 0;}'+
+                                                         '.page-box .page-i{'+
+                                                         '  padding: 6px 10px;margin-right: 5px;border: 1px solid #e1e1e1;'+
+                                                         '  background: #eee;border-radius: 2px;color: #666;cursor: pointer;}'+
+                                                         '.page-box .page-i:hover,.page-box .page-i.current{'+
+                                                         '  color: #fff;background:rgb(92, 144, 210);border: 1px solid rgb(92, 144, 210);}';
   if ( paramsObj.formatPage ) this.formatPage = paramsObj.formatPage;
   if ( paramsObj.formatFoot ) this.formatFoot = paramsObj.formatFoot;
   this.addCss();
