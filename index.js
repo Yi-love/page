@@ -69,16 +69,18 @@ Page.prototype.addCss = function(css) {
   var style ,head , document = window && window.document;
   if ( !document ) return;
   css = css ? css : this.cssTxt;
-  if ( document.all ) { //ie8
-    style = document.createStyleSheet();
-    style.cssText = this.cssTxt;
-  }else{
+  try{
     style = document.createElement("style");
     style.type = "text/css";
-    style.textContent = this.cssTxt;
+    style.setAttribute('belong','ui-page');
+    style.textContent = css;
+    head = document.head ? document.head : document.getElementsByTagName('head')[0];
+    head.appendChild(style);
+  }catch(e){
+    style = document.createStyleSheet();
+    style.setAttribute('belong','ui-page');
+    style.cssText = css;
   }
-  head = document.head ? document.head : document.getElementsByTagName('head')[0];
-  head.appendChild(style);
   return this;
 };
 /**
